@@ -19,4 +19,4 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://alpine:3.16'
-  entrypoint: '/entrypoint.sh'
+  entrypoint: 'entrypoint.sh'
