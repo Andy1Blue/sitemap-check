@@ -65,7 +65,9 @@ jobs:
       - name: Run Sitemap Check Action
         uses: Andy1Blue/sitemap-check@v1
         with:
-          sitemap_url: 'https://www.example.com/{locale}/sitemap.xml'
-          exclude: 'example.com,anotherdomain.com'
+          sitemap_url: ${{ github.event.inputs.sitemap_url }}
+          exclude: ${{ github.event.inputs.exclude }}
           slack_channel: ${{ github.event.inputs.slack_channel }}
           slack_token: ${{ secrets.SLACK_TOKEN }}
+        env:
+          GITHUB_MATRIX_LOCALE: ${{ matrix.locale }}
