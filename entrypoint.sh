@@ -50,9 +50,12 @@ done
 summary="🌐 $SITEMAP_URL\n🔍 Total Pages: $total\n✅ Success: $success\n❌ Errors: $fail\n\n$errors"
 echo -e "$summary" > result.txt
 
-curl -X POST -H 'Content-type: application/json' --data "{
-  \"channel\": \"$SLACK_CHANNEL\",
-  \"text\": \":flag-${GITHUB_MATRIX_LOCALE}: Sitemap Check Results:\n\n$summary\n\nFull logs: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
-}" -H "Authorization: Bearer $SLACK_TOKEN"
+curl -X POST "https://slack.com/api/chat.postMessage" \
+  -H "Content-type: application/json" \
+  -H "Authorization: Bearer $SLACK_TOKEN" \
+  --data "{
+    \"channel\": \"$SLACK_CHANNEL\",
+    \"text\": \":flag-${GITHUB_MATRIX_LOCALE}: Sitemap Check Results:\n\n$summary\n\nFull logs: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
+  }"
 
 exit 0
