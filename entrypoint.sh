@@ -6,7 +6,7 @@ SLACK_CHANNEL="${INPUT_SLACK_CHANNEL}"
 SLACK_TOKEN="${INPUT_SLACK_TOKEN}"
 
 if [[ -n "${matrix_locale}" ]]; then
-  SITEMAP_URL="${SITEMAP_URL//\{locale\}/${matrix_locale}}"
+  SITEMAP_URL="${SITEMAP_URL//\{locale\}/${GITHUB_MATRIX_LOCALE}}"
 fi
 
 echo "Sitemap URL: $SITEMAP_URL"
