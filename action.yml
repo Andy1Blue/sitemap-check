@@ -1,0 +1,21 @@
+name: 'Sitemap Checker'
+description: 'A GitHub Action to check links in sitemaps and report results.'
+
+inputs:
+  sitemap_url:
+    description: 'The URL of the sitemap to check. Use {locale} as a placeholder for the locale (e.g., https://example.com/{locale}/sitemap.xml).'
+    required: true
+  exclude:
+    description: 'Comma-separated list of domains to exclude from checking.'
+    required: false
+    default: 'microsoft.com,a.storyblok.com,_next,popages.com,youtube,facebook,instagram,object'
+  slack_channel:
+    description: 'The Slack channel to send results to.'
+    required: true
+  slack_token:
+    description: 'The Slack bot token to post messages.'
+    required: true
+
+runs:
+  using: 'bash'
+  main: 'entrypoint.sh'
