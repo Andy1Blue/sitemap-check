@@ -52,7 +52,7 @@ echo -e "$summary" > result.txt
 
 curl -X POST -H 'Content-type: application/json' --data "{
   \"channel\": \"$SLACK_CHANNEL\",
-  \"text\": \":flag-${matrix_locale}: Sitemap Check Results:\n\n$summary\n\nFull logs: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
+  \"text\": \":flag-${GITHUB_MATRIX_LOCALE}: Sitemap Check Results:\n\n$summary\n\nFull logs: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
 }" -H "Authorization: Bearer $SLACK_TOKEN"
 
 exit 0
