@@ -17,5 +17,6 @@ inputs:
     required: true
 
 runs:
-  using: 'bash'
+  using: 'docker'
+  image: 'docker://alpine:3.16'
   main: 'entrypoint.sh'
