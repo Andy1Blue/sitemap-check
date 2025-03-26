@@ -53,7 +53,11 @@ on:
 
 jobs:
   sitemap_check:
+    timeout-minutes: 10
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        locale: ['de-de', 'nl-nl', 'nl-en']
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
