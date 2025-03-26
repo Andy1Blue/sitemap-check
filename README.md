@@ -59,7 +59,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Sitemap Check Action
-        uses: Andy1Blue/my-sitemap-check-action@v1
+        uses: Andy1Blue/sitemap-check@v1
         with:
           sitemap_url: 'https://www.example.com/{locale}/sitemap.xml'
           exclude: 'example.com,anotherdomain.com'
