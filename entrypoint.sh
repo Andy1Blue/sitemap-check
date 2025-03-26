@@ -5,7 +5,7 @@ EXCLUDE="${INPUT_EXCLUDE}"
 SLACK_CHANNEL="${INPUT_SLACK_CHANNEL}"
 SLACK_TOKEN="${INPUT_SLACK_TOKEN}"
 
-if [[ -n "${matrix_locale}" ]]; then
+if [[ -n "${GITHUB_MATRIX_LOCALE}" ]]; then
   SITEMAP_URL="${SITEMAP_URL//\{locale\}/${GITHUB_MATRIX_LOCALE}}"
 fi
 
