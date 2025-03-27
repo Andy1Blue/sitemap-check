@@ -55,7 +55,7 @@ curl -X POST "https://slack.com/api/chat.postMessage" \
   -H "Authorization: Bearer $SLACK_TOKEN" \
   --data "{
     \"channel\": \"$SLACK_CHANNEL\",
-    \"text\": \"Sitemap Check Results:\n\n$summary\n\nFull logs: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
+    \"text\": \":world_map: Sitemap Check Results:\n\n$summary\n\nFull logs: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\"
   }"
 
 exit 0
