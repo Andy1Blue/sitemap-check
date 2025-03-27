@@ -1,4 +1,4 @@
-name: Sitemap check
+name: Sitemap Check Example 1
 
 on:
   workflow_dispatch:
@@ -24,15 +24,21 @@ on:
 
 jobs:
   sitemap_check:
+    timeout-minutes: 10
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        locale: ['de-de', 'nl-nl', 'nl-en']
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Run Sitemap Check Action
-        uses: my-sitemap-check-action@v1
+        uses: Andy1Blue/sitemap-check@v1
         with:
-          sitemap_url: 'https://www.example.com/{locale}/sitemap.xml'
-          exclude: 'example.com,anotherdomain.com'
+          sitemap_url: ${{ github.event.inputs.sitemap_url }}
+          exclude: ${{ github.event.inputs.exclude }}
           slack_channel: ${{ github.event.inputs.slack_channel }}
           slack_token: ${{ secrets.SLACK_TOKEN }}
+        env:
+          GITHUB_MATRIX_LOCALE: ${{ matrix.locale }}
