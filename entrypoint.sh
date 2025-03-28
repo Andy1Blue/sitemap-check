@@ -50,6 +50,8 @@ done
 summary="🌐 $SITEMAP_URL\n🔍 Total Pages: $total\n✅ Success: $success\n❌ Errors: $fail\n\n$errors"
 echo -e "$summary" > result.txt
 
+echo "Summary: $summary"
+
 curl -X POST "https://slack.com/api/chat.postMessage" \
   -H "Content-type: application/json" \
   -H "Authorization: Bearer $SLACK_TOKEN" \
