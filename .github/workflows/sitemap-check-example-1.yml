@@ -19,8 +19,8 @@ on:
         description: 'The Slack bot token to post messages.'
         required: true
 
-  schedule:
-    - cron: '0 6 * * *'
+#  schedule:
+#    - cron: '0 6 * * *'
 
 jobs:
   sitemap_check:
