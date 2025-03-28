@@ -1,4 +1,4 @@
-name: Sitemap check example 2
+name: Sitemap check google example
 
 on:
   workflow_dispatch:
