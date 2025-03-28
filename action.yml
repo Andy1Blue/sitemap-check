@@ -1,8 +1,8 @@
 name: 'Sitemap Checker'
 description: 'A GitHub Action to check links in sitemaps and report results.'
-author: 'Andy1Blue'
 icon: 'map'
 color: 'blue'
+author: 'Andy1Blue'
 
 inputs:
   sitemap_url:
