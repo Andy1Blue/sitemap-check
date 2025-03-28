@@ -1,0 +1,19 @@
+name: Sitemap check example 2
+
+on:
+  workflow_dispatch:
+#  schedule:
+#    - cron: '0 6 * * *'
+
+jobs:
+  sitemap_check:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
+        - name: Run Sitemap Check Action
+          uses: Andy1Blue/sitemap-check@main
+          with:
+            sitemap_url: 'https://www.google.com/sitemap.xml'
